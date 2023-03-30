@@ -5,11 +5,10 @@
 </template>
 
 <script>
+// import { ProductService } from "./service/ProductsService";
 export default {
   name: "App",
-
   components: {},
-
   data: () => ({}),
 };
 </script>
