@@ -1,12 +1,23 @@
 import { CategoriesUrl, ProductsUrl } from "@/vars/GlobalVars";
-import axios from "axios";
 
 export const ProductService = {
   async getProducts() {
-    return axios.get(ProductsUrl).then((products) => products);
+    const response = await fetch(ProductsUrl)
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((err) => {
+        throw new Error(`API PRODUCTS ${err}`);
+      });
+    return response;
   },
 
   async getCategories() {
-    return axios.get(CategoriesUrl).then((categories) => categories);
+    const response = await fetch(CategoriesUrl)
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((err) => {
+        throw new Error(`API CATEGORIES ${err}`);
+      });
+    return response;
   },
 };
