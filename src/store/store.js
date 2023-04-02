@@ -38,7 +38,7 @@ export default new Vuex.Store({
     products(state) {
       return state.products;
     },
-    categoreis(state) {
+    categories(state) {
       return state.categories;
     },
   },
