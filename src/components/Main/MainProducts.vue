@@ -26,9 +26,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  data: () => ({
-    productsList: [],
-  }),
+  data: () => ({}),
   computed: {
     ...mapGetters(["products"]),
   },
