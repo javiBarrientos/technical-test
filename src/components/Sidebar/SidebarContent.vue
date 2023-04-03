@@ -8,7 +8,10 @@
             <v-icon>mdi-filter</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title class="text-capitalize">
+            <v-list-item-title
+              class="text-capitalize"
+              @click="categoryFilter(category)"
+            >
               {{ category }}
             </v-list-item-title>
           </v-list-item-content>
@@ -25,15 +28,23 @@ export default {
     categorieSelected: null,
   }),
   computed: {
-    ...mapGetters(["categories"]),
+    ...mapGetters(["categories", "category"]),
   },
   methods: {
-    ...mapActions(["getCategories"]),
+    ...mapActions(["getCategories", "getCategory"]),
+
+    categoryFilter(category) {
+      let lastCategory = category;
+
+      if (lastCategory == this.category) {
+        return this.getCategory();
+      } else {
+        return this.getCategory(category);
+      }
+    },
   },
   created() {
     this.getCategories();
   },
 };
 </script>
-
-<style></style>
